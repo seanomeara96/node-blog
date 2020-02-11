@@ -1,0 +1,10 @@
+.entry-header{
+    &__title{
+        &--centered{
+            text-align:center;
+        }
+    }
+    &__meta{
+        margin-right:1rem;
+    }
+}

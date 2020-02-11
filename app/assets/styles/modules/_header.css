@@ -1,0 +1,12 @@
+.header{
+    &__title{
+        margin:0;
+        font-size:1.7rem;
+        font-weight:200;
+    }
+    &__subtitle{
+        color:grey;
+        margin:0;
+        font-size:1rem;
+    }
+}
