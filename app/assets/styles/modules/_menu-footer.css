@@ -1,4 +1,6 @@
 .menu-footer{
+    height:20vh;
+    transition:all ease-out .2s;
     display:none;
     @mixin atMedium{
         display:flex;
@@ -6,9 +8,9 @@
     justify-content:space-between;
     align-items:center;
     flex-wrap:wrap;
-    width:60vw;
+    width:100%;
     @mixin atMedium {
-        width:100%;
+        width:60vw;
     }
     &--is-visible{
         display:flex;

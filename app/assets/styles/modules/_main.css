@@ -1,7 +1,7 @@
 .main{
     position:absolute;
     width:100%;
-    top:10vh;
+    top:12vh;
     @mixin atMedium{
         width:calc(70vw - 16px);
         top:0;

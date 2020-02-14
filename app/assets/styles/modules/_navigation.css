@@ -1,4 +1,5 @@
 .navigation{
+    
     display:none;
     @mixin atMedium{
         display:block;
@@ -10,6 +11,7 @@
         margin:0;
         padding:0;
         li{
+            transition:all ease-out .2s;
             list-style-type: none;
             margin:1rem 0;
             a{
