@@ -1,4 +1,11 @@
 .navigation{
+    display:none;
+    @mixin atMedium{
+        display:block;
+    }
+    &--is-visible{
+        display:block;
+    }
     &__links{
         margin:0;
         padding:0;

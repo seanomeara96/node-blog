@@ -1,7 +1,12 @@
 .main{
     position:absolute;
-    width:calc(70vw - 16px);
-    top:0;
+    width:100%;
+    top:10vh;
+    @mixin atMedium{
+        width:calc(70vw - 16px);
+        top:0;
+    }
+    
     right:0;
     display:flex;
     flex-direction:column;

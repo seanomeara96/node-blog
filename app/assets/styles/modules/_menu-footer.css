@@ -1,7 +1,16 @@
 .menu-footer{
-    display:flex;
+    display:none;
+    @mixin atMedium{
+        display:flex;
+    }
     justify-content:space-between;
     align-items:center;
     flex-wrap:wrap;
-    
+    width:60vw;
+    @mixin atMedium {
+        width:100%;
+    }
+    &--is-visible{
+        display:flex;
+    }
 }
