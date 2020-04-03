@@ -9,9 +9,7 @@
     align-items:center;
     flex-wrap:wrap;
     width:100%;
-    @mixin atMedium {
-        width:60vw;
-    }
+    max-width:250px;
     &--is-visible{
         display:flex;
     }
