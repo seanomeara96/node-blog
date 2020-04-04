@@ -2,8 +2,9 @@
   "name": "blog",
   "version": "1.0.0",
   "description": "simple blog similar to nesslabs blog",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
+    "start":"nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack"
   },
@@ -27,6 +28,7 @@
     "fs-extra": "*",
     "html-webpack-plugin": "*",
     "mini-css-extract-plugin": "*",
+    "nodemon": "^2.0.2",
     "postcss-hexrgba": "*",
     "postcss-import": "*",
     "postcss-loader": "*",
