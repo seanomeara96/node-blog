@@ -12,6 +12,11 @@
         background-color: #c9c9c9c9;
         padding:.2rem .1rem;
     }
+    &__text-input--large{
+        width:100%;
+        background-color: #fff;
+        padding:.5rem .2rem;
+    }
     &__text-area{
         width:100%;
         resize:none;
@@ -23,4 +28,25 @@
         color:white;
         padding:.5rem;
     }
+    &--centered{
+        form{
+            display:flex;
+            flex-direction:column;
+            justify-content: center;
+            align-items: center;
+        }
+        .form__text-input{
+            width:100%;
+        }
+    }
+    &--center-div{
+        form{
+            div{
+                display:flex;
+                flex-direction:column;
+                align-items: center;
+            }
+        }
+    }
+    
 }
