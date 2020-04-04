@@ -16,42 +16,43 @@ let postcssPlugins = [
     require('cssnano')
 ]
 let cssOptions = {loader:'postcss-loader',options:{plugins: postcssPlugins}}
-let cssConfig = {
-    test:/\.css$/i,
-    use:[MiniCssExtractPlugin.loader,'css-loader?url=false',cssOptions]
-}
+
 let config = {
     entry: './frontend-js/scripts.js',
+    mode:"development",
     module:{
-        rules:[]
-    },
-    plugins:[]
-}
-if(currentTask == 'bundlejs'){
-    config.mode="development"
-    config.module.rules.push({
-        test: /\.js$/,
-        exclude:/(node_modules)/,
-        use:{
-            loader:"babel-loader",
-            options:{
-                presets:['@babel/preset-env']
+        rules:[
+            {
+                test: /\.js$/,
+                exclude:/(node_modules)/,
+                use:{
+                    loader:"babel-loader",
+                    options:{
+                        presets:['@babel/preset-env']
+                    }
+                }
+            },
+            {
+                test:/\.css$/i,
+                use:[
+                    {
+                        loader:MiniCssExtractPlugin.loader,
+                        options: {
+                            publicPath: './public'
+                        }
+                    },
+                    'css-loader?url=false',
+                    cssOptions
+                ]
             }
-        }
-    })
-    config.output = {
+        ]
+    },
+    plugins:[new MiniCssExtractPlugin({filename:"styles-bundled.css"})],
+    output: {
         filename:'scripts-bundled.js',
-        path: path.resolve(__dirname, "frontend-js")
+        path: path.resolve(__dirname, "public")
     }
 }
-if (currentTask == 'bundlecss') {
-    config.mode="development"
-    config.plugins.push(new MiniCssExtractPlugin({filename:"styles-bundled.css"}),new DisableOutputWebpackPlugin({test: /\.js$/}))
-    config.module.rules.push(cssConfig)
-    config.output = {
-        path: path.resolve(__dirname,'public')
-    }
 
-}
 
 module.exports = config

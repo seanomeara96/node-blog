@@ -106,7 +106,18 @@ eval("__webpack_require__.r(__webpack_exports__);\nfunction _classCallCheck(inst
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_MenuToggle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/MenuToggle */ \"./frontend-js/modules/MenuToggle.js\");\n//import '../styles/styles.css'\n\nnew _modules_MenuToggle__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\n\nif (false) {}\n\n//# sourceURL=webpack:///./frontend-js/scripts.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../styles/styles.css */ \"./styles/styles.css\");\n/* harmony import */ var _styles_styles_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_styles_styles_css__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _modules_MenuToggle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/MenuToggle */ \"./frontend-js/modules/MenuToggle.js\");\n\n\nnew _modules_MenuToggle__WEBPACK_IMPORTED_MODULE_1__[\"default\"]();\n\n//# sourceURL=webpack:///./frontend-js/scripts.js?");
+
+/***/ }),
+
+/***/ "./styles/styles.css":
+/*!***************************!*\
+  !*** ./styles/styles.css ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./styles/styles.css?");
 
 /***/ })
 
