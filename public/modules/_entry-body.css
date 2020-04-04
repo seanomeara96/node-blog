@@ -1,0 +1,8 @@
+.entry-body{
+    &--centered{
+        text-align:center;
+    }
+    p{
+        line-height:1.3;
+    }
+}
