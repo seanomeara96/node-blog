@@ -23,6 +23,7 @@
     "@babel/preset-env": "*",
     "autoprefixer": "*",
     "babel-loader": "*",
+    "body-parser": "^1.19.0",
     "clean-webpack-plugin": "*",
     "css-loader": "*",
     "cssnano": "*",
