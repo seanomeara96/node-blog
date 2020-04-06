@@ -4,7 +4,7 @@
   "description": "simple blog similar to nesslabs blog",
   "main": "app.js",
   "scripts": {
-    "start":"nodemon app.js",
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack"
   },
@@ -14,7 +14,8 @@
     "bcrypt": "*",
     "ejs": "*",
     "express": "*",
-    "normalize.css": "*"
+    "normalize.css": "*",
+    "pg": "^8.0.0"
   },
   "devDependencies": {
     "@babel/core": "*",
