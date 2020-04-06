@@ -1,34 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog</title>
-<link href="./assets/styles/styles.6fa32e81be2ace6bc95c.css" rel="stylesheet"></head>
-<body>
-    <aside class="menu">
-        <div class="header">
-            <h1 class="header__title">Blog Title</h1>
-            <h2 class="header__subtitle">Blog Subtitle</h2>
-        </div>
-        <nav class="navigation">
-            <ul class="navigation__links">
-                <li><a href="">About</a></li>
-                <li><a href="">Articles</a></li>
-                <li><a href="">Newsletter</a></li>
-                <li><a href="">Library</a></li>
-                <li><a href="">Shop</a></li>
-                <li><a href="">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="menu-footer">
-            <div class="social-link">S</div>
-            <div class="social-link">T</div>
-            <div class="social-link">F</div>
-            <div class="social-link">L</div>
-            <div class="social-link">I</div>
-        </div>
-    </aside>
+<%- include('includes/header') %>
+<%- include('includes/menu') %>
     <main class="main">
         <div class="site-content">
             
@@ -96,5 +67,4 @@ Self-help: the tip of the
         </article>
         </div>
     </main>
-<script type="text/javascript" src="./assets/scripts/main.6fa32e81be2ace6bc95c.js"></script></body>
-</html>
+<%- include('includes/footer') %>
