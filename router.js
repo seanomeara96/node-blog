@@ -1,2 +1,4 @@
-const basicRoutes = require('./routes/basicRoutes');
-module.exports = basicRoutes;
+const routes = [
+    require('./routes/publicRoutes')
+];
+module.exports = routes;
