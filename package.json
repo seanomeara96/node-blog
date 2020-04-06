@@ -16,7 +16,8 @@
     "ejs": "*",
     "express": "*",
     "normalize.css": "*",
-    "pg": "^8.0.0"
+    "pg": "^8.0.0",
+    "validator": "^13.0.0"
   },
   "devDependencies": {
     "@babel/core": "*",
