@@ -5,6 +5,4 @@ app.set('views','views')
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use('/',router)
-app.listen(3000,()=>{
-    console.log('listening')
-})
+app.listen(3000)
