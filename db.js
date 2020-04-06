@@ -6,3 +6,4 @@ const pool = new Pool({
     password: process.env.PASSWORD,
     post: 5432
 });
+module.exports = pool
