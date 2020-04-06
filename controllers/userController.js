@@ -1,9 +1,9 @@
-exports.logIn = () => {
+exports.logIn = (req, res) => {
 
 };
-exports.logOut = () => {
+exports.logOut = (req, res) => {
 
 };
-exports.register = () => {
+exports.register = (req, res) => {
 
 };
