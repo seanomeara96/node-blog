@@ -80,7 +80,7 @@ User.prototype.register = function () {
             
                 // Database operation
                 await db.query(`INSERT INTO users(username, email, email_verified, date_created)
-                VALUES($1, $2, $3, $4, NOW()) 
+                VALUES($1, $2, $3, NOW()) 
                 ON CONFLICT DO NOTHING`, toStore).then((param) => {
                     resolve(param)
                 }).catch((err) => {
