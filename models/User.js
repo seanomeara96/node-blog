@@ -1,27 +1,29 @@
-const pool = require('../db');
+const db = require('../db');
 const validator = require('validator');
 let User = function (data) {
     this.data = data;
     this.errors = [];
 };
 // Clean up the inputs
-User.prototype.cleanUp = () => {
+User.prototype.cleanUp = function () {
+    console.log("this is the db", db)
+    console.log("Registration form", this.data)
     // The type of the fields must be String
     if(typeof(this.data.username) !== "string"){this.data.username == ""};
     if(typeof(this.data.email) !== "string"){this.data.email == ""};
     if(typeof(this.data.password) !== "string"){this.data.password == ""};
     if(typeof(this.data.samePassword) !== "string"){this.data.samePassword == ""};
-
     // Trim and lowercase the fields for uniformity
     this.data = {
         username: this.data.username.trim().toLowerCase(),
         email: this.data.email.trim().toLowerCase(),
         password: this.data.password.trim().toLowerCase(),
-        otherPassword: this.data.otherPassword.trim().toLowerCase()
+        samepassword: this.data.samepassword.trim().toLowerCase()
     };
+    console.log("Clean up complete");
 };
 // Validate username, email and password
-User.prototype.validate = () => {
+User.prototype.validate = function () {
     return new Promise((resolve, reject) => {
         // Username field can't be empty
         if(this.data.username == ""){this.errors.push("Username field cannot be empty")};
@@ -45,22 +47,22 @@ User.prototype.validate = () => {
         if(this.data.password.length > 0 && this.data.password.length < 8){this.errors.push("Password must be at least 8 characters long")};
         
         // Password cant be too long
-        if(this.data.password.length < 50){this.errors.push("Your password cannot exceed 50 characters")};
+        if(this.data.password.length > 50){this.errors.push("Your password cannot exceed 50 characters")};
 
         // Passwords must match
-        if(this.data.password != this.data.otherPassword){this.errors.push("Passwords must be matching")};
+        if(this.data.password != this.data.samepassword){this.errors.push("Passwords must be matching")};
 
         // Check is username is valid then check if email exists in db
         if(this.data.username.length > 2 && this.data.username.length < 31 && validator.isAlphanumeric(this.data.username)){
             // Do it in here
-            console.log("username is valid")
+            console.log("must check existence in db");
         };
         resolve();
     });
 
     
 };
-User.prototype.register = () => {
+User.prototype.register = function () {
     return new Promise(async (resolve, reject) => {
         this.cleanUp()
         await this.validate()
@@ -69,14 +71,27 @@ User.prototype.register = () => {
             // May have to ommit the password field temporarily
             this.data = {
                 username: this.data.username,
-                email: this.data.email
-            }
-            await //some database operation
-            resolve();
+                email: this.data.email,
+                email_verified: false
+            };
+            // Take values and assign to an array
+            let toStore = Object.keys(this.data).map(x => this.data[x])
+            console.log("this is what im storing", toStore)
+            
+                // Database operation
+                await db.query(`INSERT INTO users(username, email, email_verified, date_created)
+                VALUES($1, $2, $3, $4, NOW()) 
+                ON CONFLICT DO NOTHING`, toStore).then((param) => {
+                    resolve(param)
+                }).catch((err) => {
+                    console.log("error querying the database from user.register", err)
+                });
+            
         }else{
+            console.log(this.errors);
             reject();
         };
     });
 };
 
-module.exports = User
+module.exports = User;
