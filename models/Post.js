@@ -1,10 +1,14 @@
 const db = require('../db');
 
-let Post = function () {
+let Post = function (data) {
     this.data = data;
-    this.errors = errors;
+    this.errors = [];
 };
 
+// Not finished yet
+// Needs: 
+//  - dynamic username
+//  - dynamic user id
 Post.prototype.create = function () {
     return new Promise(async (resolve, reject) => {
         if (!this.errors.length) {
@@ -12,19 +16,21 @@ Post.prototype.create = function () {
                 this.data.title,
                 this.data.body,
                 1,
-                "Sean O'Meara"
+                "sean"
             ]
             await db.query(`
                 INSERT INTO posts(title, body, user_id, author, date_created)
                 VALUES($1, $2, $3, $4, NOW() )
             `, toStore
             )
-            .then((q_res) => {
-                console.log("Success adding post to db:", param);
+            .then((err, q_res) => {
+                if(err){console.log("error with psql", err.stack)} // returning undefined
+                console.log("Success adding post to db:", q_res);// returning undefined
                 resolve(q_res)
             })
             .catch((err) => {
                 console.log("Error adding post to db:", err);
+                reject(err);
             });
         } else {
             console.log("Error with post:", this.errors);
@@ -32,3 +38,4 @@ Post.prototype.create = function () {
         };
     });
 };
+module.exports = Post;

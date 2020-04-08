@@ -5,13 +5,15 @@ exports.createScreen = (req, res) => {
 };
 
 exports.create =  (req, res) => {
+    console.log("Creating post:", req.body);
     let post = new Post(req.body);
     post.create()
     .then(response => {
-        console.log("Successful post creation");
+        console.log("res.json from post controller", );
+        res.json(response)
         // respond with post id
-        let newId = x;
-        res.redirect(`/posts/${newId}`);
+        //let newId = x;
+        //res.redirect(`/posts/${newId}`);
     }).catch(err => {
         console.log("Error creating post:", err);
         res.render("404");
