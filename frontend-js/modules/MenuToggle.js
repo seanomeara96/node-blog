@@ -1,3 +1,5 @@
+// A "doFirst" method would be a cool idea
+// just to avoid all the setTimeout shenanigans
 class MenuToggle {
     constructor () {
         this.btn = document.querySelector('.menu-btn');
@@ -23,11 +25,19 @@ class MenuToggle {
         this.modal.classList.remove('menu--is-closed');
         this.modal.classList.add('menu--is-open');
         this.isOpen = true;
+        setTimeout(()=>{this.toggleContents()}, 300);
     };
     closeTheMenu () {
-        this.modal.classList.remove('menu--is-open');
-        this.modal.classList.add('menu--is-closed');
-        this.isOpen = false;
+        this.toggleContents();
+        setTimeout(() => {
+            this.modal.classList.remove('menu--is-open');
+            this.modal.classList.add('menu--is-closed');
+            this.isOpen = false;
+        },100);
+    };
+    toggleContents () {
+        this.nav.classList.toggle('navigation--is-visible')
+        this.footer.classList.toggle('menu-footer--is-visible')
     };
 };
 export default MenuToggle;
