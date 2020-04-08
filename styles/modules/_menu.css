@@ -1,15 +1,26 @@
 .menu{
-    transition:all ease-out .6s;
     position:absolute;
     top:0;
     left:0;
     color:white;
     z-index:100;
     width:100vw;
-    height:12vh;
+    min-height:12vh;
     &--is-open{
-        height:100%;
-        position:fixed;
+        animation-name:open;
+        animation-duration:.6s;
+    }
+    &--is-closed{
+        animation-name:close;
+        animation-duration:.6s;
+    }
+    @keyframes open {
+        from {height:12vh}
+        to {height:100%}
+    }
+    @keyframes close {
+        from{height:100%}
+        to{height:12vh}
     }
     padding:0 2rem;
     @mixin atMedium{
