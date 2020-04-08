@@ -1,10 +1,10 @@
 const Post = require('../models/Post');
 
-exports.createScreen = function (req, res) {
+exports.createScreen = (req, res) => {
     res.render('create-post')
 };
 
-exports.create = function () {
+exports.create =  (req, res) => {
     let post = new Post(req.body);
     post.create()
     .then(response => {
@@ -18,15 +18,15 @@ exports.create = function () {
     });
 };
 
-exports.delete = function () {
+exports.delete = (req, res) => {
 
 };
 
-exports.edit = function () {
+exports.edit = (req, res) => {
 
 };
 
-exports.viewSingle = function () {
+exports.viewSingle = (req, res) => {
     //query db for post with an id == req.params.id
 
     // return json object
