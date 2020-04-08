@@ -25,7 +25,7 @@ class MenuToggle {
         this.modal.classList.remove('menu--is-closed');
         this.modal.classList.add('menu--is-open');
         this.isOpen = true;
-        setTimeout(()=>{this.toggleContents()}, 300);
+        setTimeout(() => this.toggleContents(), 300);
     };
     closeTheMenu () {
         this.toggleContents();
@@ -36,8 +36,8 @@ class MenuToggle {
         },100);
     };
     toggleContents () {
-        this.nav.classList.toggle('navigation--is-visible')
-        this.footer.classList.toggle('menu-footer--is-visible')
+        this.nav.classList.toggle('navigation--is-visible');
+        this.footer.classList.toggle('menu-footer--is-visible');
     };
 };
 export default MenuToggle;
