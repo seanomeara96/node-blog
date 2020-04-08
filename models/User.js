@@ -59,8 +59,6 @@ User.prototype.validate = function () {
         };
         resolve();
     });
-
-    
 };
 User.prototype.register = function () {
     return new Promise(async (resolve, reject) => {
@@ -75,23 +73,26 @@ User.prototype.register = function () {
                 email_verified: false
             };
             // Take values and assign to an array
-            let toStore = Object.keys(this.data).map(x => this.data[x])
-            console.log("this is what im storing", toStore)
-            
+            let toStore = Object.keys(this.data).map(x => this.data[x]);
+            console.log("Storing array:", toStore);
                 // Database operation
-                await db.query(`INSERT INTO users(username, email, email_verified, date_created)
-                VALUES($1, $2, $3, NOW()) 
-                ON CONFLICT DO NOTHING`, toStore).then((param) => {
-                    resolve(param)
-                }).catch((err) => {
-                    console.log("error querying the database from user.register", err)
-                });
-            
+            await db.query(`
+            INSERT INTO users(username, email, email_verified, date_created)
+            VALUES($1, $2, $3, NOW()) 
+            ON CONFLICT DO NOTHING`, 
+            toStore
+            )
+            .then((param) => {
+                console.log("success adding user to database");
+                resolve(param);
+            })
+            .catch((err) => {
+                console.log("error querying the database from user.register", err);
+            });  
         }else{
             console.log(this.errors);
-            reject();
+            reject(this.errors);
         };
     });
 };
-
 module.exports = User;
