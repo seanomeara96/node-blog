@@ -21,12 +21,12 @@ Post.prototype.create = function () {
             await db.query(`
                 INSERT INTO posts(title, body, user_id, author, date_created)
                 VALUES($1, $2, $3, $4, NOW() )
+                RETURNING pid
             `, toStore
             )
-            .then((err, q_res) => {
-                if(err){console.log("error with psql", err.stack)} // returning undefined
-                console.log("Success adding post to db:", q_res);// returning undefined
-                resolve(q_res)
+            .then((q_res) => {
+                console.log("Success adding post to db:", q_res);
+                resolve(q_res.rows[0])
             })
             .catch((err) => {
                 console.log("Error adding post to db:", err);

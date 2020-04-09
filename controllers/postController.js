@@ -1,5 +1,7 @@
 const Post = require('../models/Post');
 
+// Just logic that handles getting the
+// create post page
 exports.createScreen = (req, res) => {
     res.render('create-post')
 };
@@ -9,11 +11,9 @@ exports.create =  (req, res) => {
     let post = new Post(req.body);
     post.create()
     .then(response => {
-        console.log("res.json from post controller", );
-        res.json(response)
         // respond with post id
-        //let newId = x;
-        //res.redirect(`/posts/${newId}`);
+        let newId = response.pid;
+        res.redirect(`/posts/${newId}`);
     }).catch(err => {
         console.log("Error creating post:", err);
         res.render("404");
@@ -35,5 +35,5 @@ exports.viewSingle = (req, res) => {
 
     //render single post page
     let singlePost = {}
-    res.render('single-post', singlePost)
+    res.render('post-single', singlePost)
 };
