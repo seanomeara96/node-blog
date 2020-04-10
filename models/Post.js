@@ -61,7 +61,7 @@ Post.viewFeed = function () {
                 SELECT * FROM posts 
                 ORDER BY date_created DESC
             `);
-            resolve(postsFeed);
+            resolve(postsFeed.rows);
         } catch (err) {
             reject(err);
         }

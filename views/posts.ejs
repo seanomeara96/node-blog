@@ -2,38 +2,16 @@
 <%- include('includes/menu') %>
     <main class="main page-section">
         <div class="site-content">
-            <div class="post-preview">
-                <h2 class="post-preview__title">Post title goes here</h2>
-                <div class="post-preview__meta"><span><strong>Post Author:</strong> Sean Jensen</span><span><strong>Created:</strong> 03-04-2020</span></div>
-                <p class="post-preview__snippet">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis nulla blanditiis 
-                    porro officiis harum doloribus sapiente nostrum minima pariatur repudiandae
-                <a href="/">...Read More</a></p>
-            </div>
-            <div class="post-preview">
-                <h2 class="post-preview__title">Post title goes here</h2>
-                <div class="post-preview__meta"><span><strong>Post Author:</strong> Sean Jensen</span><span><strong>Created:</strong> 03-04-2020</span></div>
-                <p class="post-preview__snippet">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis nulla blanditiis 
-                    porro officiis harum doloribus sapiente nostrum minima pariatur repudiandae
-                <a href="/">...Read More</a></p>
-            </div>
-            <div class="post-preview">
-                <h2 class="post-preview__title">Post title goes here</h2>
-                <div class="post-preview__meta"><span><strong>Post Author:</strong> Sean Jensen</span><span><strong>Created:</strong> 03-04-2020</span></div>
-                <p class="post-preview__snippet">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis nulla blanditiis 
-                    porro officiis harum doloribus sapiente nostrum minima pariatur repudiandae
-                <a href="/">...Read More</a></p>
-            </div>
-            <div class="post-preview">
-                <h2 class="post-preview__title">Post title goes here</h2>
-                <div class="post-preview__meta"><span><strong>Post Author:</strong> Sean Jensen</span><span><strong>Created:</strong> 03-04-2020</span></div>
-                <p class="post-preview__snippet">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis nulla blanditiis 
-                    porro officiis harum doloribus sapiente nostrum minima pariatur repudiandae
-                <a href="/">...Read More</a></p>
-            </div>
-           </div>
+            <% posts.forEach(()=>{ %>
+                <div class="post-preview">
+                    <h2 class="post-preview__title">Post title goes here</h2>
+                    <div class="post-preview__meta"><span><strong>Post Author:</strong> Sean Jensen</span><span><strong>Created:</strong> 03-04-2020</span></div>
+                    <p class="post-preview__snippet">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis nulla blanditiis 
+                        porro officiis harum doloribus sapiente nostrum minima pariatur repudiandae
+                    <a href="/">...Read More</a></p>
+                </div>
+            <% }) %>
+        </div>
     </main>
     <%- include('includes/footer') %>

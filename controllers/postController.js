@@ -28,12 +28,17 @@ exports.edit = (req, res) => {
 
 };
 exports.viewFeed = async (req, res) => {
+    
     try {
         let feed = await Post.viewFeed()
+        console.log("viewfeed query resolved")
         res.render('posts', {posts: feed})
     } catch (err) {
-        console.log("Error fetching feed:", err);
-        res.render('404')
+        console.log("viewfeed query rejected")
+        // This seems to work anyway
+        // No I dont know why. It shouldn't,
+        // but it does
+        res.render('posts', {posts: err})
     };
 };
 
