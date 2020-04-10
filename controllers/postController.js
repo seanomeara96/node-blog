@@ -9,15 +9,14 @@ exports.createScreen = (req, res) => {
 exports.create =  (req, res) => {
     console.log("Creating post:", req.body);
     let post = new Post(req.body);
-    post.create()
-    .then(response => {
-        // respond with post id
-        let newId = response.pid;
-        res.redirect(`/posts/${ newId }`);
-    }).catch(err => {
+    try {
+        let createdPost = await post.create();
+        // Created post has a post id object
+        res.redirect(`/posts/${ createdPost.pid }`);
+    } catch (err) {
         console.log("Error creating post:", err);
         res.render("404");
-    });
+    };
 };
 
 exports.delete = (req, res) => {
