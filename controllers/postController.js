@@ -21,14 +21,13 @@ exports.create =  (req, res) => {
 };
 
 exports.delete = (req, res) => {
-    console.log("Deleting post:")
-    Post.delete()
-    .then(() => res.redirect('/posts'))
+    console.log("Deleting post:");
+    Post.delete().then(() => res.redirect('/posts'))
     .catch(err => console.log("There was an error deleting the post"));
 };
 
 exports.edit = (req, res) => {
-    let post = new Post(re.body)
+    let post = new Post(req.body);
     try{
         let updatedPost = post.update();
         res.render('post-single', { post: updatedPost });
