@@ -28,12 +28,14 @@ exports.edit = (req, res) => {
 
 };
 
-exports.viewSingle = (req, res) => {
-    let response = {
-        title: "this is the title of the post",
-        body: "this is the body of the post",
-        date_created: new Date(),
-        author: "sean jensen o'meara"
-    }
-    res.render('post-single', {post: response})
+exports.viewSingle = async (req, res) => {
+    try{
+        // query db for post with an id == req.params.id
+        let singlePost = await Post.view(req.params.id);
+        // return object
+        res.render('post-single', {post: singlePost});
+    } catch (err) {
+        console.log("Error fetching post:", err);
+        res.render('404');
+    };
 };

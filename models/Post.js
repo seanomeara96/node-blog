@@ -38,4 +38,21 @@ Post.prototype.create = function () {
         };
     });
 };
+
+Post.view = function (postId) {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let postToServe = await db.query(`
+                SELECT * FROM posts
+                WHERE pid=$1
+                `, [postId]
+            );
+            resolve(postToServe.rows[0]);
+        } catch (err) {
+            reject(err)
+        }
+    });  
+};
+
+
 module.exports = Post;
