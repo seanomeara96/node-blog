@@ -54,5 +54,19 @@ Post.view = function (postId) {
     });  
 };
 
+Post.viewFeed = function () {
+    return new Promise(async (reject, resolve) => {
+        try{
+            let postsFeed = await db.query(`
+                SELECT * FROM posts 
+                ORDER BY date_created DESC
+            `);
+            resolve(postsFeed);
+        } catch (err) {
+            reject(err);
+        }
+    });
+};
+
 
 module.exports = Post;
