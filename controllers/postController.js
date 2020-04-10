@@ -29,11 +29,11 @@ exports.edit = (req, res) => {
 };
 
 exports.viewSingle = (req, res) => {
-    //query db for post with an id == req.params.id
-
-    // return json object
-
-    //render single post page
-    let singlePost = {}
-    res.render('post-single', singlePost)
+    let response = {
+        title: "this is the title of the post",
+        body: "this is the body of the post",
+        date_created: new Date(),
+        author: "sean jensen o'meara"
+    }
+    res.render('post-single', {post: response})
 };
