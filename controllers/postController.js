@@ -27,8 +27,8 @@ exports.delete = (req, res) => {
 exports.edit = (req, res) => {
 
 };
+
 exports.viewFeed = async (req, res) => {
-    
     try {
         let feed = await Post.viewFeed();
         console.log("viewfeed query resolved");
