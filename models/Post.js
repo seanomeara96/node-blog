@@ -55,13 +55,17 @@ Post.view = function (postId) {
 };
 
 Post.viewFeed = function () {
-    return new Promise(async (reject, resolve) => {
+    return new Promise(async (resolve, reject) => {
         try{
             let postsFeed = await db.query(`
                 SELECT * FROM posts 
                 ORDER BY date_created DESC
             `);
-            resolve(postsFeed.rows);
+            if(postsFeed.rows){
+                resolve(postsFeed.rows);
+            }else{
+                reject("There was an error with viewFeed");
+            };
         } catch (err) {
             reject(err);
         }

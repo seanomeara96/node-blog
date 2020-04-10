@@ -34,10 +34,7 @@ exports.viewFeed = async (req, res) => {
         console.log("viewfeed query resolved");
         res.render('posts', {posts: feed});
     } catch (err) {
-        console.log("viewfeed query rejected");
-        // This seems to work anyway
-        // No I dont know why. It shouldn't,
-        // but it does
+        console.log("viewfeed query rejected", err);
         res.render('posts', {posts: err});
     };
 };
