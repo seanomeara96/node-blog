@@ -6,8 +6,8 @@ exports.createScreen = (req, res) => {
     res.render('create-post')
 };
 
-exports.create =  (req, res) => {
-    console.log("Creating post:", req.body);
+exports.create =  async (req, res) => {
+    console.log("Creating post:");
     let post = new Post(req.body);
     try {
         let createdPost = await post.create();

@@ -25,7 +25,7 @@ Post.prototype.create = function () {
             `, toStore
             )
             .then((q_res) => {
-                console.log("Success adding post to db:", q_res);
+                console.log("Success adding post to db:");
                 resolve(q_res.rows[0])
             })
             .catch((err) => {
