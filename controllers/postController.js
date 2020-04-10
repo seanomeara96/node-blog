@@ -27,6 +27,15 @@ exports.delete = (req, res) => {
 exports.edit = (req, res) => {
 
 };
+exports.viewFeed = async (req, res) => {
+    try {
+        let feed = await Post.viewFeed()
+        res.render('posts', {posts: feed})
+    } catch (err) {
+        console.log("Error fetching feed:", err);
+        res.render('404')
+    };
+};
 
 exports.viewSingle = async (req, res) => {
     try{
