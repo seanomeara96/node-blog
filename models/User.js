@@ -101,7 +101,8 @@ User.prototype.logIn = function () {
             SELECT * FROM users
             WHERE email=$1
             `,[this.data.email]).then(response => {
-                resolve(response.rows[0])
+                this.data = response.rows[0]
+                resolve(this.data)
             }).catch(err => reject(err))
             } catch (err) {
                 reject(err)

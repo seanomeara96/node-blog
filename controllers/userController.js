@@ -6,6 +6,10 @@ exports.logIn = (req, res) => {
     user.logIn()
     .then(response => {
         console.log("Log in success:", response);
+        req.session.user = { 
+            username: user.data.username, 
+            email: user.data.email 
+        }
         res.redirect('/');
     })
     .catch(err => {
