@@ -6,6 +6,7 @@ let User = function (data) {
     this.data = data;
     this.errors = [];
 };
+
 // Clean up the inputs
 User.prototype.cleanUp = function () {
     console.log('user data', this.data)
