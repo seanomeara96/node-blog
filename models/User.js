@@ -6,21 +6,18 @@ let User = function (data) {
 };
 // Clean up the inputs
 User.prototype.cleanUp = function () {
-    console.log("this is the db", db)
-    console.log("Registration form", this.data)
+    console.log('this,data', this.data)
     // The type of the fields must be String
     if(typeof(this.data.username) !== "string"){this.data.username == ""};
     if(typeof(this.data.email) !== "string"){this.data.email == ""};
     if(typeof(this.data.password) !== "string"){this.data.password == ""};
     if(typeof(this.data.samePassword) !== "string"){this.data.samePassword == ""};
     // Trim and lowercase the fields for uniformity
-    this.data = {
-        username: this.data.username.trim().toLowerCase(),
-        email: this.data.email.trim().toLowerCase(),
-        password: this.data.password.trim().toLowerCase(),
-        samepassword: this.data.samepassword.trim().toLowerCase()
-    };
-    console.log("Clean up complete");
+    if (this.data.username) {this.data.username = this.data.username.trim().toLowerCase()}
+    if (this.data.email) {this.data.email = this.data.email.trim().toLowerCase()};
+    if (this.data.password) {this.data.password = this.data.password.trim().toLowerCase()};
+    if (this.data.samepassword) {this.data.samepassword = this.data.samepassword.trim().toLowerCase()};
+    console.log("Clean up complete", this.data);
 };
 // Validate username, email and password
 User.prototype.validate = function () {
@@ -93,6 +90,22 @@ User.prototype.register = function () {
             console.log(this.errors);
             reject(this.errors);
         };
+    });
+};
+User.prototype.logIn = function () {
+    return new Promise((resolve, reject) => {
+        // Always clean the fields
+        this.cleanUp()
+        try {
+            db.query(`
+            SELECT * FROM users
+            WHERE email=$1
+            `,[this.data.email]).then(response => {
+                resolve(response.rows[0])
+            }).catch(err => reject(err))
+            } catch (err) {
+                reject(err)
+            };
     });
 };
 module.exports = User;

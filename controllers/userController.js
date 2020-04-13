@@ -4,12 +4,12 @@ exports.logIn = (req, res) => {
     console.log("user is logging in:", req.body)
     let user = new User(req.body);
     user.logIn()
-    .then((response) => {
+    .then(response => {
         console.log("Log in success:", response);
         res.redirect('/');
     })
     .catch(err => {
-        console.log("Error loggin in", err);
+        console.log("Error logging in", err);
         res.redirect('/login');
     });
 };
