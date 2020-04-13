@@ -1,7 +1,7 @@
 const User = require('../models/User');
 
 exports.logIn = (req, res) => {
-    console.log("user is logging in:", req.body)
+    console.log("user is logging in:", req.body);
     let user = new User(req.body);
     user.logIn()
     .then(response => {

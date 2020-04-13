@@ -1,12 +1,14 @@
 const db = require('../db');
 const validator = require('validator');
+const bcrypt = require('bcrypt');
+
 let User = function (data) {
     this.data = data;
     this.errors = [];
 };
 // Clean up the inputs
 User.prototype.cleanUp = function () {
-    console.log('this,data', this.data)
+    console.log('user data', this.data)
     // The type of the fields must be String
     if(typeof(this.data.username) !== "string"){this.data.username == ""};
     if(typeof(this.data.email) !== "string"){this.data.email == ""};
