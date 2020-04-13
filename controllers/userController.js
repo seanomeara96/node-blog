@@ -19,15 +19,9 @@ exports.logIn = (req, res) => {
 };
 
 exports.logOut = (req, res) => {
-    console.log("User is logging out:", req.body);
-    let user = new User(req.body);
-    user.logOut()
-    .then(response => {
-        console.log("Log out success:", response);
-        res.redirect('/');
-    })
-    .catch(err => {
-        console.log("Error logging out:", err);
+    console.log("User is logging out:", req.session.user);
+    req.session.destroy(() => {
+        console.log('Logged out', req.session);
         res.redirect('/');
     });
 };
