@@ -12,9 +12,11 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "*",
+    "connect-pg-simple": "^6.1.0",
     "dotenv": "^8.2.0",
     "ejs": "*",
     "express": "*",
+    "express-session": "^1.17.0",
     "normalize.css": "*",
     "pg": "^8.0.0",
     "validator": "^13.0.0"
