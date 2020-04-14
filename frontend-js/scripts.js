@@ -1,3 +1,3 @@
-import '../styles/styles.css'
-import MenuToggle from './modules/MenuToggle'
-new MenuToggle()
+import "../styles/styles.css";
+import MenuToggle from "./modules/MenuToggle";
+new MenuToggle();
