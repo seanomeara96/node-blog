@@ -1,9 +1,10 @@
 const postController = require("../controllers/postController");
+const userController = require("../controllers/userController");
 const express = require("express");
 const router = express.Router();
 
 // Create Post
-router.get("/create", postController.createScreen);
+router.get("/create", userController.isUserLoggedIn, postController.createScreen);
 router.post("/create-post", postController.create);
 
 // Delete Post

@@ -41,3 +41,14 @@ exports.register = (req, res) => {
       res.redirect("/register");
     });
 };
+
+// Checks if user is logged in
+// if not, redirects to login
+exports.isUserLoggedIn = (req, res, next) => {
+  // Check to see if there is session data
+  if (req.session) {
+    next();
+  } else {
+    res.redirect("/login");
+  }
+};

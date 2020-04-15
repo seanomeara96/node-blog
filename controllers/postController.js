@@ -3,6 +3,8 @@ const Post = require("../models/Post");
 // Just logic that handles getting the
 // create post page
 exports.createScreen = (req, res) => {
+  // Should only load if user is logged in
+  // otherwise it should redirect to login
   res.render("create-post");
 };
 
