@@ -114,7 +114,7 @@ User.prototype.register = function () {
         email_verified: false,
       };
       // Take values and assign to an array
-      let toStore = Object.keys(this.data).map((x) => this.data[x]);
+      let toStore = Object.values(this.data);
       console.log("Storing array:", toStore);
       // Database operation
       await db
