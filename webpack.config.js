@@ -1,7 +1,15 @@
+/*
+this can be reworked
+so that webpack compiles and outputs
+css and js while watchin the ejs files
+
+or even output the hashed filenames
+in the header and footer ejs files 
+*/
 const currentTask = process.env.npm_lifecycle_event
 const path = require('path')
 // Remove these & uninstall
-// const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const DisableOutputWebpackPlugin = require('disable-output-webpack-plugin')
 // const HtmlWebpackPlugin = require('html-webpack-plugin')
