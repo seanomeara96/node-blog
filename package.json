@@ -35,7 +35,7 @@
     "fs-extra": "*",
     "html-webpack-plugin": "*",
     "mini-css-extract-plugin": "*",
-    "nodemon": "^2.0.2",
+    "nodemon": "^2.0.4",
     "postcss-hexrgba": "*",
     "postcss-import": "*",
     "postcss-loader": "*",
@@ -43,8 +43,8 @@
     "postcss-nested": "*",
     "postcss-simple-vars": "*",
     "style-loader": "*",
-    "webpack": "*",
+    "webpack": "^4.44.1",
     "webpack-cli": "*",
-    "webpack-dev-server": "*"
+    "webpack-dev-server": "^3.11.0"
   }
 }
